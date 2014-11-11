@@ -36,6 +36,14 @@ dependencies {
     testCompile("junit:junit")
 }
 
+test {
+    testLogging {
+        exceptionFormat = 'full' //full logging for fails
+        events "passed", "skipped" //displays pasing and skipped tests
+        outputs.upToDateWhen {false} //forces tests to run each time
+    }
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '1.11'
 }
